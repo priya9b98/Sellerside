@@ -20,7 +20,7 @@ public class Bookborrow {
     private Double _custID;
     private String _dateClaimToRet;
     private String _dateOfBorrow;
-    private String _rating;
+    private Double _rating;
     private String _supplierID;
 
     @DynamoDBHashKey(attributeName = "BorrowId")
@@ -73,11 +73,11 @@ public class Bookborrow {
         this._dateOfBorrow = _dateOfBorrow;
     }
     @DynamoDBAttribute(attributeName = "Rating")
-    public String getRating() {
+    public Double getRating() {
         return _rating;
     }
 
-    public void setRating(final String _rating) {
+    public void setRating(final Double _rating) {
         this._rating = _rating;
     }
     @DynamoDBAttribute(attributeName = "SupplierID")

@@ -1,11 +1,13 @@
 package com.example.priya.sellerside;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.amazonaws.mobile.client.AWSMobileClient;
 import com.amazonaws.mobile.client.AWSStartupHandler;
@@ -19,7 +21,7 @@ import java.sql.Timestamp;
 
 public class Finalborrow extends AppCompatActivity {
     TextView bname,breturn,bborrow,cname,preturn;
-    Button predict,borrow;
+    Button predict,borrow,delete;
     ImageView imageView;
     RequestTableDO requestTableDO;
     DynamoDBMapper dynamoDBMapper;
@@ -39,6 +41,7 @@ public class Finalborrow extends AppCompatActivity {
         predict=findViewById(R.id.confirm);
         borrow=findViewById(R.id.button);
         imageView=findViewById(R.id.imageView2);
+        delete=findViewById(R.id.deletebtn);
 
         AWSMobileClient.getInstance().initialize(this, new AWSStartupHandler() {
             @Override
@@ -76,7 +79,7 @@ public class Finalborrow extends AppCompatActivity {
          bookborrow.setBookID(bookid);
          bookborrow.setBorrowId(borrowid);
          bookborrow.setDateClaimToRet(returndate);
-         bookborrow.setRating(null);
+         bookborrow.setRating(0.0);
          bookborrow.setSupplierID("1");
          bookborrow.setCustID(custid);
          bookborrow.setDateOfBorrow(borrowdate);
@@ -105,7 +108,13 @@ public class Finalborrow extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 addrequest(dynamoDBMapper,bookborrow);
-                deletef(dynamoDBMapper,requestTableDO);
+                deletef(dynamoDBMapper,requestTableDO,1);
+            }
+        });
+        delete.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                deletef(dynamoDBMapper,requestTableDO,0);
             }
         });
 
@@ -116,11 +125,24 @@ public class Finalborrow extends AppCompatActivity {
         fetch1.execute();
     }
 
-    private void deletef(final DynamoDBMapper dynamoDBMapper, final RequestTableDO requestTableDO) {
+    private void deletef(final DynamoDBMapper dynamoDBMapper, final RequestTableDO requestTableDO,final  int i) {
         new Thread(new Runnable() {
             @Override
             public void run() {
                 dynamoDBMapper.delete(requestTableDO);
+                runOnUiThread(new Runnable() {
+                    @Override
+                    public void run() {
+                        if(i==0){
+                        Toast.makeText(Finalborrow.this,"Deleted",Toast.LENGTH_SHORT).show();}
+                        else{
+                            Toast.makeText(Finalborrow.this,"Accepted",Toast.LENGTH_SHORT).show();
+                    }
+
+                        Intent in=new Intent(Finalborrow.this,MainActivity.class);
+                        startActivity(in);
+                    }
+                });
             }
         }).start();
 
