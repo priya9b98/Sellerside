@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:id="@+id/tt"
+        android:background="#4d9af2"
+        android:orientation="vertical"></LinearLayout>
+
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="match_parent"
+        android:layout_height="435dp"
+        android:scaleType="centerCrop"
+        android:src="@drawable/im2"
+        app:layout_constraintTop_toBottomOf="@+id/tt"
+        />
+
+    <Button
+        android:id="@+id/btnadd"
+        android:layout_width="190dp"
+        android:layout_height="wrap_content"
+
+        android:layout_marginLeft="4dp"
+        android:layout_marginStart="4dp"
+
+        android:text="Add Books"
+        android:textAlignment="gravity"
+        app:layout_constraintStart_toStartOf="@+id/imageView"
+        app:layout_constraintTop_toBottomOf="@+id/imageView" />
+
+    <Button
+        android:id="@+id/btnnotify"
+        android:layout_width="185dp"
+        android:layout_height="wrap_content"
+        android:text="book requests"
+        app:layout_constraintEnd_toEndOf="@+id/imageView"
+        app:layout_constraintLeft_toRightOf="@+id/btnadd"
+        app:layout_constraintTop_toBottomOf="@+id/imageView" />
+
+    <LinearLayout
+        android:id="@+id/tt2"
+        android:layout_width="match_parent"
+        android:layout_height="44dp"
+        android:background="#4d9af2"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnadd"
+        app:layout_constraintVertical_bias="1.0"></LinearLayout>
+
+</android.support.constraint.ConstraintLayout>

@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Finalborrow">
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+
+        android:id="@+id/borr"
+        android:text="BORROW"
+        android:gravity="center"
+        android:textAlignment="gravity"
+        android:textAllCaps="true"
+
+        android:background="#5b80f1"
+        android:textSize="12sp"
+        android:visibility="visible"
+        android:textStyle="bold" />
+
+    <TextView
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:id="@+id/booo"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="50dp"
+        android:text="Book:"
+        android:textAlignment="center"
+
+        app:layout_constraintTop_toBottomOf="@+id/borr"
+        android:layout_alignParentLeft="true" />
+
+    <TextView
+        android:id="@+id/name11"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+        android:text="name"
+        android:textAlignment="center"
+        app:layout_constraintLeft_toRightOf="@+id/booo"
+        app:layout_constraintTop_toBottomOf="@+id/borr" />
+    <TextView
+        android:layout_width="200dp"
+        android:textAlignment="center"
+        android:layout_height="wrap_content"
+        android:text="dateof borrow"
+        app:layout_constraintTop_toBottomOf="@+id/booo"
+        android:id="@+id/dabo"/>
+
+    <TextView
+        android:id="@+id/bordat"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:text="da"
+        android:textAlignment="center"
+        app:layout_constraintLeft_toRightOf="@+id/dabo"
+        app:layout_constraintTop_toBottomOf="@+id/booo" />
+    <TextView
+        android:layout_width="200dp"
+        android:textAlignment="center"
+        android:layout_height="wrap_content"
+        android:text="dateof return"
+        app:layout_constraintTop_toBottomOf="@+id/dabo"
+        android:id="@+id/daret"/>
+
+    <TextView
+        android:id="@+id/retdat"
+        android:layout_width="200dp"
+        android:layout_height="23dp"
+        android:text="da"
+        android:textAlignment="center"
+        app:layout_constraintLeft_toRightOf="@+id/daret"
+        app:layout_constraintTop_toBottomOf="@+id/dabo" />
+
+    <TextView
+        android:id="@+id/pri"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:text="Customer name"
+        android:textAlignment="center"
+        app:layout_constraintTop_toBottomOf="@+id/daret" />
+    <TextView
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintLeft_toRightOf="@+id/pri"
+        android:text="150"
+        android:id="@+id/pri1"
+        android:textAlignment="center"
+        app:layout_constraintTop_toBottomOf="@+id/daret"/>
+
+    <TextView
+        android:id="@+id/caution"
+        android:layout_width="200dp"
+
+        android:layout_height="wrap_content"
+        android:text="rate"
+        android:textAlignment="center"
+        app:layout_constraintTop_toBottomOf="@+id/pri" />
+
+    <TextView
+        android:id="@+id/cautionprice"
+        android:layout_width="200dp"
+        android:layout_height="17dp"
+        android:text="--"
+        android:textAlignment="center"
+        app:layout_constraintLeft_toRightOf="@+id/caution"
+        app:layout_constraintTop_toBottomOf="@+id/pri" />
+
+    <TextView
+        android:id="@+id/total"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:text="Predicted return"
+        android:textAlignment="center"
+        app:layout_constraintTop_toBottomOf="@+id/caution" />
+
+    <TextView
+        android:id="@+id/totalprice"
+        android:layout_width="200dp"
+        android:layout_height="17dp"
+        android:textAlignment="center"
+        app:layout_constraintLeft_toRightOf="@+id/total"
+        app:layout_constraintTop_toBottomOf="@+id/caution" />
+
+    <Button
+        android:id="@+id/confirm"
+        android:layout_width="131dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="208dp"
+        android:text="predict return"
+        app:layout_constraintTop_toBottomOf="@+id/total"
+        tools:layout_editor_absoluteX="0dp"
+        tools:ignore="MissingConstraints" />
+
+    <Button
+        android:id="@+id/button"
+        android:layout_width="131dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="208dp"
+        android:text="Borrow"
+        app:layout_constraintStart_toEndOf="@+id/confirm"
+        app:layout_constraintTop_toBottomOf="@+id/total" />
+
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="86dp"
+        android:layout_height="88dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="44dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/totalprice"
+        app:srcCompat="@mipmap/ic_launcher" />
+
+</android.support.constraint.ConstraintLayout>
